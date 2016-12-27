@@ -21,11 +21,14 @@
 RCT_EXPORT_MODULE();
 
 - (id) init {
+    NSLog(@"FrequencyTracker init");
     self = [super init];
     return self;
 }
 
 RCT_EXPORT_METHOD(start) {
+    NSLog(@"FrequencyTracker start");
+
     // Set up mic/tracker
     _mic = [[AKMicrophone alloc] init];
     _tracker = [[AKFrequencyTracker alloc] init:mic
@@ -52,6 +55,8 @@ RCT_EXPORT_METHOD(start) {
 }
 
 RCT_EXPORT_METHOD(stop) {
+    NSLog(@"FrequencyTracker stop");
+
     // Stop timer
     [_timer invalidate];
     _timer = nil;
